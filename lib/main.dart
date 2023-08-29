@@ -31,6 +31,8 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  Color btnColor = Colors.greenAccent;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -49,13 +51,36 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
+        backgroundColor: btnColor,
         onPressed: (){
-          final snackBar = SnackBar(content: Text('Yay! A SnackBar!'));
-          ScaffoldMessenger.of(context).showSnackBar(snackBar);
+          ScaffoldMessenger.of(context).showSnackBar(createSnack(text: 'Yay! A SnackBar!'));
         },
         tooltip: 'Increment',
         child: const Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
+  }
+
+  SnackBar createSnack({required String text}) {
+    final content = Row(
+      mainAxisSize: MainAxisSize.max,
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        const Icon(Icons.thumb_up),
+        Text(text),
+      ],
+    );
+    final snack = SnackBar(
+        content: content,
+      action: SnackBarAction(
+        label: 'Changer la couleur',
+        onPressed: () {
+          setState(() {
+            btnColor = btnColor == Colors.greenAccent ? Colors.redAccent : Colors.greenAccent;
+          });
+        },
+      )
+    );
+    return snack;
   }
 }
