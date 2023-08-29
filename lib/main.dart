@@ -79,6 +79,7 @@ class _MyHomePageState extends State<MyHomePage> {
             btnColor = btnColor == Colors.greenAccent ? Colors.redAccent : Colors.greenAccent;
           });
         },
+        textColor: Colors.red,
       )
     );
     return snack;
