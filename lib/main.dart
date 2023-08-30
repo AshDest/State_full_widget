@@ -49,14 +49,27 @@ class _MyHomePageState extends State<MyHomePage> {
                   final alert = AlertDialog(
                     title: const Text("Ma first Alert"),
                     content: const Text("Ceci est le contenu de mon alerte"),
+                    actions: [
+                      TextButton(
+                          onPressed: () {
+                            Navigator.of(context).pop();
+                          },
+                          child: const Text('Annuler')),
+                      TextButton(
+                          onPressed: () {
+                            Navigator.of(context).pop();
+                          },
+                          child: const Text('OK')),
+                    ],
                   );
                   showDialog(
+                    barrierDismissible: false,
                       context: context,
                       builder: (BuildContext ctx) {
                         return alert;
                       });
                 },
-                child: Text('Montrer une alerte')
+                child: const Text('Montrer une alerte')
             ),
           ],
         ),
