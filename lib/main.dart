@@ -53,7 +53,7 @@ class _MyHomePageState extends State<MyHomePage> {
       floatingActionButton: FloatingActionButton(
         backgroundColor: btnColor,
         onPressed: (){
-          ScaffoldMessenger.of(context).showSnackBar(createSnack(text: 'Yay! A SnackBar!'));
+          ScaffoldMessenger.of(context).showSnackBar(createSnack(text: 'Snack evolue'));
         },
         tooltip: 'Increment',
         child: const Icon(Icons.add),
@@ -73,7 +73,7 @@ class _MyHomePageState extends State<MyHomePage> {
     final snack = SnackBar(
         content: content,
       action: SnackBarAction(
-        label: 'Changer la Couleur',
+        label: 'Changer couleur btn',
         onPressed: () {
           setState(() {
             btnColor = btnColor == Colors.greenAccent ? Colors.redAccent : Colors.greenAccent;
@@ -82,6 +82,9 @@ class _MyHomePageState extends State<MyHomePage> {
         textColor: Colors.red,
       ),
       backgroundColor: Colors.greenAccent,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(15),
+      ),
       elevation: 8,
     );
     return snack;
