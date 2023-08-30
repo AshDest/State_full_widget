@@ -73,13 +73,13 @@ class _MyHomePageState extends State<MyHomePage> {
     final snack = SnackBar(
         content: content,
       action: SnackBarAction(
-        label: 'Changer la couleur',
+        label: 'Changer la Couleur',
         onPressed: () {
           setState(() {
             btnColor = btnColor == Colors.greenAccent ? Colors.redAccent : Colors.greenAccent;
           });
         },
-        textColor: Colors.red,
+        textColor: Colors.greenAccent,
       )
     );
     return snack;
