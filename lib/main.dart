@@ -44,8 +44,19 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            const Text(
-              'Montrer un Snackbar',
+            ElevatedButton(
+                onPressed: () {
+                  final alert = AlertDialog(
+                    title: const Text("Ma first Alert"),
+                    content: const Text("Ceci est le contenu de mon alerte"),
+                  );
+                  showDialog(
+                      context: context,
+                      builder: (BuildContext ctx) {
+                        return alert;
+                      });
+                },
+                child: Text('Montrer une alerte')
             ),
           ],
         ),
@@ -86,6 +97,7 @@ class _MyHomePageState extends State<MyHomePage> {
         borderRadius: BorderRadius.circular(15),
       ),
       elevation: 8,
+      behavior: SnackBarBehavior.floating,
     );
     return snack;
   }
