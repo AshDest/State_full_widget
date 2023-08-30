@@ -32,12 +32,13 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   Color btnColor = Colors.greenAccent;
+  Color appBarColor = Colors.lightBlue;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+        backgroundColor: appBarColor,
         title: Text(widget.title),
       ),
       body: Center(
@@ -58,8 +59,11 @@ class _MyHomePageState extends State<MyHomePage> {
                       TextButton(
                           onPressed: () {
                             Navigator.of(context).pop();
+                            setState(() {
+                              appBarColor = appBarColor == Colors.lightBlue ? Colors.redAccent : Colors.lightBlue;
+                            });
                           },
-                          child: const Text('OK')),
+                          child: const Text('Changer le AppBar')),
                     ],
                   );
                   showDialog(
