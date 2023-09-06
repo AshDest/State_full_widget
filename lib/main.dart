@@ -137,27 +137,22 @@ class _MyHomePageState extends State<MyHomePage> {
     final simple = SimpleDialog(
       title: const Text('Je suis un simple dialogue'),
       children: [
+        const Icon( Icons.add_a_photo_outlined, size: 50, color: Colors.redAccent),
         const Text("Je suis comme une colonne"),
         const Divider(),
         const Text("Mais je suis un Pop Up"),
-        SimpleDialogOption(
-          onPressed: () {
-            Navigator.of(context).pop();
-          },
-          child: const Text('Annuler'),
-        ),
-        SimpleDialogOption(
-          onPressed: () {
-            Navigator.of(context).pop();
-            setState(() {
-              appBarColor = appBarColor == Colors.lightBlue ? Colors.redAccent : Colors.lightBlue;
-            });
-          },
-          child: const Text('Changer le AppBar'),
-        ),
+        option()
       ],
       elevation: 15,
     );
     return simple;
+  }
+  SimpleDialogOption option() {
+    return SimpleDialogOption(
+      onPressed: () {
+        Navigator.of(context).pop();
+      },
+      child: const Text('Fermer'),
+    );
   }
 }
