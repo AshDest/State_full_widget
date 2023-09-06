@@ -137,6 +137,9 @@ class _MyHomePageState extends State<MyHomePage> {
     final simple = SimpleDialog(
       title: const Text('Je suis un simple dialogue'),
       children: [
+        const Text("Je suis comme une colonne"),
+        const Divider(),
+        const Text("Mais je suis un Pop Up"),
         SimpleDialogOption(
           onPressed: () {
             Navigator.of(context).pop();
@@ -153,6 +156,7 @@ class _MyHomePageState extends State<MyHomePage> {
           child: const Text('Changer le AppBar'),
         ),
       ],
+      elevation: 15,
     );
     return simple;
   }
