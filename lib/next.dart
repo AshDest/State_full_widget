@@ -25,7 +25,7 @@ class NextState extends State<Next>{
                   showApp = !showApp;
                 });
               },
-              child: const Text('Toggle App Bar'),
+              child: Text((showApp)? 'Cacher': 'Montrer'),
             ),
             ElevatedButton(
               onPressed: (){
