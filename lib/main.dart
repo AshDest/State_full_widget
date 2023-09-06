@@ -47,25 +47,7 @@ class _MyHomePageState extends State<MyHomePage> {
           children: <Widget>[
             ElevatedButton(
                 onPressed: () {
-                  final alert = AlertDialog(
-                    title: const Text("Ma first Alert"),
-                    content: const Text("Ceci est le contenu de mon alerte"),
-                    actions: [
-                      TextButton(
-                          onPressed: () {
-                            Navigator.of(context).pop();
-                          },
-                          child: const Text('Annuler')),
-                      TextButton(
-                          onPressed: () {
-                            Navigator.of(context).pop();
-                            setState(() {
-                              appBarColor = appBarColor == Colors.lightBlue ? Colors.redAccent : Colors.lightBlue;
-                            });
-                          },
-                          child: const Text('Changer le AppBar')),
-                    ],
-                  );
+                  final alert = createAlert();
                   showDialog(
                     barrierDismissible: false,
                       context: context,
@@ -75,6 +57,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 },
                 child: const Text('Montrer une alerte')
             ),
+
           ],
         ),
       ),
@@ -117,5 +100,28 @@ class _MyHomePageState extends State<MyHomePage> {
       behavior: SnackBarBehavior.floating,
     );
     return snack;
+  }
+
+  AlertDialog createAlert() {
+    final alert = AlertDialog(
+      title: const Text("Ma first Alert"),
+      content: const Text("Ceci est le contenu de mon alerte"),
+      actions: [
+        TextButton(
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+            child: const Text('Annuler')),
+        TextButton(
+            onPressed: () {
+              Navigator.of(context).pop();
+              setState(() {
+                appBarColor = appBarColor == Colors.lightBlue ? Colors.redAccent : Colors.lightBlue;
+              });
+            },
+            child: const Text('Changer le AppBar')),
+      ],
+    );
+    return alert;
   }
 }
