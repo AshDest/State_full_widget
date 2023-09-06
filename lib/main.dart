@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:state_widget/next.dart';
 
 void main() {
   runApp(const MyApp());
@@ -56,8 +57,14 @@ class _MyHomePageState extends State<MyHomePage> {
                 showMyDialog(dialog: createSimple());
               },
               child: const Text('Montrer simple'),
-            )
-
+            ),
+            ElevatedButton(
+              onPressed:(){
+                final nextPage = Next(color: appBarColor);
+                Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext ctx) => nextPage));
+              },
+              child: const Text('Aller à la page suivante'),
+            ),
           ],
         ),
       ),
