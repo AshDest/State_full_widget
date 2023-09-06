@@ -47,8 +47,7 @@ class _MyHomePageState extends State<MyHomePage> {
           children: <Widget>[
             ElevatedButton(
                 onPressed: () {
-                  final alert = createAlert();
-
+                  showMyDialog(alert: createAlert());
                 },
                 child: const Text('Montrer une alerte')
             ),
@@ -119,8 +118,8 @@ class _MyHomePageState extends State<MyHomePage> {
     );
     return alert;
   }
-  void showMyDialog(){
-    showDialog(
+  Future <void> showMyDialog({required AlertDialog alert}) async{
+    await showDialog(
         barrierDismissible: false,
         context: context,
         builder: (BuildContext ctx) {
