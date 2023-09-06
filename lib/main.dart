@@ -137,7 +137,7 @@ class _MyHomePageState extends State<MyHomePage> {
     final simple = SimpleDialog(
       title: const Text('Je suis un simple dialogue'),
       children: [
-        const Icon( Icons.add_a_photo_outlined, size: 50, color: Colors.redAccent),
+        const Icon( Icons.add_a_photo_outlined, size: 50, color: Colors.deepPurple,),
         const Text("Je suis comme une colonne"),
         const Divider(),
         const Text("Mais je suis un Pop Up"),
