@@ -48,12 +48,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ElevatedButton(
                 onPressed: () {
                   final alert = createAlert();
-                  showDialog(
-                    barrierDismissible: false,
-                      context: context,
-                      builder: (BuildContext ctx) {
-                        return alert;
-                      });
+
                 },
                 child: const Text('Montrer une alerte')
             ),
@@ -123,5 +118,13 @@ class _MyHomePageState extends State<MyHomePage> {
       ],
     );
     return alert;
+  }
+  void showMyDialog(){
+    showDialog(
+        barrierDismissible: false,
+        context: context,
+        builder: (BuildContext ctx) {
+          return alert;
+        });
   }
 }
