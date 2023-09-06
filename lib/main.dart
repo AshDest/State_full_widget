@@ -47,10 +47,16 @@ class _MyHomePageState extends State<MyHomePage> {
           children: <Widget>[
             ElevatedButton(
                 onPressed: () {
-                  showMyDialog(alert: createAlert());
+                  showMyDialog(dialog: createAlert());
                 },
                 child: const Text('Montrer une alerte')
             ),
+            ElevatedButton(
+              onPressed:(){
+                showMyDialog(dialog: createSimple());
+              },
+              child: const Text('Montrer simple'),
+            )
 
           ],
         ),
@@ -118,12 +124,36 @@ class _MyHomePageState extends State<MyHomePage> {
     );
     return alert;
   }
-  Future <void> showMyDialog({required AlertDialog alert}) async{
+  Future <void> showMyDialog({required Widget dialog}) async{
     await showDialog(
         barrierDismissible: false,
         context: context,
         builder: (BuildContext ctx) {
-          return alert;
+          return dialog;
         });
+  }
+
+  SimpleDialog createSimple(){
+    final simple = SimpleDialog(
+      title: const Text('Je suis un simple dialogue'),
+      children: [
+        SimpleDialogOption(
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
+          child: const Text('Annuler'),
+        ),
+        SimpleDialogOption(
+          onPressed: () {
+            Navigator.of(context).pop();
+            setState(() {
+              appBarColor = appBarColor == Colors.lightBlue ? Colors.redAccent : Colors.lightBlue;
+            });
+          },
+          child: const Text('Changer le AppBar'),
+        ),
+      ],
+    );
+    return simple;
   }
 }
